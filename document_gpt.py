@@ -21,15 +21,15 @@ import dotenv
 embedder = SentenceTransformer("evilfreelancer/enbeddrus-v0.2")
 
 # Use Pinecone class for initialization
-pinecone_api_key = os.getenv("pinecone_api_key") # get API key from environment variable
+pinecone_api_key = st.secrets["pinecone_api_key"] # get API key from environment variable
 print(pinecone_api_key)
 pinecone_environment = 'us-east-1' # set Pinecone environment
-pinecone_index_name = 'document-gpt-vector-database' # set Pinecone index name
+pinecone_index_name = st.secrets['pinecone_environment'] # set Pinecone index name
 
 pinecone_client = pinecone.Pinecone(api_key=pinecone_api_key, environment=pinecone_environment)
 index = pinecone_client.Index(pinecone_index_name) # Initialize Pinecone index
 
-claude_api_key = os.getenv('claude_ai_api_key')
+claude_api_key = st.secrets['claude_api_key']
 claude_api_url = "https://console.anthropic.com/settings/keys"  # Example endpoint
 
 # ... (rest of your code
