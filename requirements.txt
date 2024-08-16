@@ -1,3 +1,5 @@
 streamlit
 sentence-transformers
 pinecone-client
+requests
+python-dotenv
